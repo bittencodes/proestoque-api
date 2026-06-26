@@ -38,11 +38,13 @@ model Produto {
 }
 
 model Usuario {
-  id       String   @id @default(cuid())
-  nome     String
-  email    String   @unique
-  senha    String
-  criadoEm DateTime @default(now())
+  id                    String    @id @default(cuid())
+  nome                  String
+  email                 String    @unique
+  senha                 String
+  criadoEm              DateTime  @default(now())
+  refreshToken          String?
+  refreshTokenExpiracao DateTime?
 
   @@map("usuarios")
 }

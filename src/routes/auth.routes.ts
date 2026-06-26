@@ -9,6 +9,8 @@ const controller = new AuthController();
 
 router.post("/registro", validate(registroSchema), controller.registrar.bind(controller));
 router.post("/login", validate(loginSchema), controller.login.bind(controller));
+router.post("/refresh", controller.refresh.bind(controller)); 
+router.post("/logout", autenticar, controller.logout.bind(controller)); 
 router.get("/me", autenticar, controller.perfil.bind(controller));
 
 export { router as authRouter };
